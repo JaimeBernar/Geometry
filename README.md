@@ -13,7 +13,6 @@ Currently the library have support for these classes:
 The next classes are going to be supported:
 
 - Vector4D
-
 - Matrix2D
 - Matrix3D
 - Matrix4D
