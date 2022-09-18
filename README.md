@@ -9,10 +9,10 @@ Currently the library have support for these classes:
 - Segment3D
 - Vector2D
 - Vector3D
-
-The next classes are going to be supported:
-
 - Vector4D
 - Matrix2D
 - Matrix3D
 - Matrix4D
+
+# Contributions and feedback
+Please feel free to use the library, open issues, fix bugs or provide feedback.
