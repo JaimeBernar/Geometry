@@ -12,11 +12,28 @@
         }
         public Point2D(Point2D another) : this(another.X, another.Y) { }
 
+        /// <summary>
+        /// Computes the Euclidian distance between two points
+        /// </summary>
+        /// <param name="b">The second point</param>
+        /// <returns>The Euclidian distance</returns>
         public double DistanceTo(Point2D b)
         {
             return Math.Sqrt((X - b.X) * (X - b.X) + (Y - b.Y) * (Y - b.Y));
         }
 
+        /// <summary>
+        /// Computes Euclidian distance between two points
+        /// </summary>
+        /// <param name="pointA">Point A</param>
+        /// <param name="pointB">Point B</param>
+        /// <returns>The Euclidian distance</returns>
+        public static double DistanceBetween(Point2D pointA, Point2D pointB)
+        {
+            return pointA.DistanceTo(pointB);
+        }
+
+        #region OVERRIDES
         public override bool Equals(object obj)
         {
             if (obj is null)
@@ -37,9 +54,9 @@
             hash = 23 * hash * Y.GetHashCode();
             return hash;
         }
+        #endregion
 
-
-
+        #region OPERATORS
         public static Point2D operator +(Point2D p, Vector2D v)
         {
             return new Point2D(p.X + v.X, p.Y + v.Y);
@@ -84,5 +101,7 @@
         {
             return new Point2D(p.X / s, p.Y / s);
         }
+        #endregion
+
     }
 }

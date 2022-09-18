@@ -137,9 +137,9 @@
         }
 
         /// <summary>
-        /// Translates the plane to a given point
+        /// Translates this plane to a given <see cref="Point3D"/>
         /// </summary>
-        /// <param name="pt"></param>
+        /// <param name="pt">The point to translate the plane to</param>
         public void TranslateTo(Point3D pt)
         {
             throw new NotImplementedException();
@@ -175,7 +175,11 @@
             Regen();
         }
 
-
+        /// <summary>
+        /// Projects a <see cref="Vector3D"/> into this plane
+        /// </summary>
+        /// <param name="P">The vector to project</param>
+        /// <returns>The projected <see cref="Vector2D"/></returns>
         public Vector2D Project(Vector3D P)
         {
             double x = AxisX * P;
@@ -183,6 +187,11 @@
             return new Vector2D(x, y);
         }
 
+        /// <summary>
+        /// Projects the <see cref="Point3D"/> into this plane
+        /// </summary>
+        /// <param name="P">The point to project</param>
+        /// <returns>The projected <see cref="Point2D"/></returns>
         public Point2D Project(Point3D P)
         {
             double x = AxisX * new Vector3D(Origin, P);
@@ -195,17 +204,6 @@
         public override string ToString()
         {
             return $"Origin = {Origin} | Normal = {Equation}";
-        }
-
-
-        public static implicit operator Plane(devDept.Geometry.Plane d)
-        {
-            return new Plane(d.Origin, d.Equation);
-        }
-
-        public static implicit operator devDept.Geometry.Plane(Plane d)
-        {
-            return new devDept.Geometry.Plane(d.Origin, new devDept.Geometry.Vector3D(d.Equation.X, d.Equation.Y, d.Equation.Z));
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Geometry
+﻿using System.Runtime.CompilerServices;
+
+namespace Geometry
 {
     public class Point3D : Point2D
     {
@@ -33,13 +35,24 @@
         }
 
         /// <summary>
-        /// Computes minimum distance from this point to a 3D point
+        /// Computes the Euclidian distance between two points
         /// </summary>
         /// <param name="segment">The 3D point</param>
-        /// <returns>The distance</returns>
+        /// <returns>The Euclidian distance</returns>
         public double DistanceTo(Point3D b)
         {
             return Math.Sqrt((X - b.X) * (X - b.X) + (Y - b.Y) * (Y - b.Y) + (Z - b.Z) * (Z - b.Z));
+        }
+
+        /// <summary>
+        /// Computes the Euclidian distance between two points
+        /// </summary>
+        /// <param name="pointA">Point A</param>
+        /// <param name="pointB">Point B</param>
+        /// <returns>The Euclidian distance</returns>
+        public static double DistanceBetween(Point3D pointA, Point3D pointB)
+        {
+            return pointA.DistanceTo(pointB);
         }
 
         /// <summary>

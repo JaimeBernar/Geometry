@@ -51,7 +51,6 @@
         /// <param name="u">First vector</param>
         /// <param name="v">Second vector</param>
         /// <returns>True if the vectors are orthogonal, false otherwise</returns>
-
         public static bool AreOrthogonal(Vector2D u, Vector2D v)
         {
             return Dot(u, v) == 0;
@@ -63,7 +62,6 @@
         /// <param name="u">First vector</param>
         /// <param name="v">Second vector</param>
         /// <returns>true if the vectors are parallel, false otherwise</returns>
-
         public static bool AreParallel(Vector2D u, Vector2D v)
         {
             return u.Y / u.X == v.Y / v.X;
@@ -102,36 +100,81 @@
             return hash;
         }
 
+        #endregion
+
+        #region OPERATORS
+        /// <summary>
+        /// Computes the addition of two vectors
+        /// </summary>
+        /// <param name="u">First vector</param>
+        /// <param name="v">Second vector</param>
+        /// <returns>The resulting vector</returns>
         public static Vector2D operator +(Vector2D u, Vector2D v)
         {
             return new Vector2D(u.X + v.X, u.Y + v.Y);
         }
 
+        /// <summary>
+        /// Computes the substraction of two vectors
+        /// </summary>
+        /// <param name="u">First vector</param>
+        /// <param name="v">Second vector</param>
+        /// <returns>Thre resulting vector</returns>
         public static Vector2D operator -(Vector2D u, Vector2D v)
         {
             return new Vector2D(u.X - v.X, u.Y - v.Y);
         }
 
+        /// <summary>
+        /// Computes the dot product between two vectors
+        /// </summary>
+        /// <param name="u">First vector</param>
+        /// <param name="v">Second vector</param>
+        /// <returns>The dot product result</returns>
         public static double operator *(Vector2D u, Vector2D v)
         {
             return Dot(u, v);
         }
 
+        /// <summary>
+        /// Computes the multiplication between a vector and a scalar
+        /// </summary>
+        /// <param name="v">The vector</param>
+        /// <param name="s">The scalar</param>
+        /// <returns>The vector scaled</returns>
         public static Vector2D operator *(Vector2D v, double s)
         {
             return new Vector2D(s * v.X, s * v.Y);
         }
 
+        /// <summary>
+        /// Computes the multiplication between a vector and a scalar
+        /// </summary>
+        /// <param name="v">The vector</param>
+        /// <param name="s">The scalar</param>
+        /// <returns>The vector scaled</returns>
         public static Vector2D operator *(double s, Vector2D v)
         {
             return v * s;
         }
 
+        /// <summary>
+        /// Computes the division between a vector and a scalar
+        /// </summary>
+        /// <param name="v">The vector</param>
+        /// <param name="s">The scalar</param>
+        /// <returns>The vector scaled</returns>
         public static Vector2D operator /(Vector2D v, double s)
         {
             return new Vector2D(v.X / s, v.Y / s);
         }
 
+        /// <summary>
+        /// Computes the division between a vector and a scalar
+        /// </summary>
+        /// <param name="v">The vector</param>
+        /// <param name="s">The scalar</param>
+        /// <returns>The vector scaled</returns>
         public static Vector2D operator /(double s, Vector2D v)
         {
             return v / s;

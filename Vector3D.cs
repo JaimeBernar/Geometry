@@ -129,6 +129,10 @@
             return hash;
         }
 
+        #endregion
+
+        #region OPERATORS
+
         /// <summary>
         /// Performs a vector addition operation
         /// </summary>
